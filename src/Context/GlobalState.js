@@ -3,13 +3,7 @@ import GlobalReducer from './GlobalReducer';
 
 //InitialState
 const InitialState = {
-  transactions: [
-    { id: 1, text: 'Flower', amount: -20 },
-    { id: 2, text: 'Biscuits', amount: -250 },
-    { id: 3, text: 'Income', amount: 2500 },
-    { id: 4, text: 'Movies', amount: -200 },
-    { id: 5, text: 'ROI', amount: 300 },
-  ],
+  transactions: [],
 };
 
 //Creat context
@@ -26,11 +20,20 @@ export const GlobalProvider = ({ children }) => {
     });
   };
 
+  //Add Transaction
+  const addTransaction = (transaction) => {
+    dispatch({
+      type: 'ADD',
+      payload: transaction,
+    });
+  };
+
   return (
     <GlobalContext.Provider
       value={{
         transactions: state.transactions,
         deleteTransaction,
+        addTransaction,
       }}
     >
       {children}
