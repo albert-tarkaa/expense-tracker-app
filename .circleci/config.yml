@@ -6,16 +6,15 @@ jobs:
     docker:
      - image: circleci/node:13.8.0
     steps:
-      - run: "Say Hello world again"
+      - run: echo Say Hello world again
   print_world:
     docker:
      - image: circleci/node:13.8.0
     steps:
-      - run: "Say world"
+      - run: echo Say world
 workflows:
   welcome:
     jobs:
-      - welcome/run
       - print_hello
       - print_world:
           requires:
