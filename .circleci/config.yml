@@ -16,7 +16,7 @@ workflows:
   welcome:
     jobs:
       - print-hello
-      - print_world:
+      - print-world:
         requires:
            - say-hello
 
